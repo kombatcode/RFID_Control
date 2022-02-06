@@ -1,10 +1,6 @@
 #define led1 2 // Жёлтый лед
 #define led2 3 // Красный лед
 
-#include <SPI.h>          // Библиотека SPI для MFRC522    
-#include <MFRC522.h>      // Библиотека RFID модуля MFRC522
-
-
 // Сравнение двух массивов известного размера
 bool compareUIDs(uint8_t *in1, uint8_t *in2, uint8_t size) {
   for (uint8_t i = 0; i < size; i++) {  // Проходим по всем элементам
@@ -12,6 +8,7 @@ bool compareUIDs(uint8_t *in1, uint8_t *in2, uint8_t size) {
   }
   return true;                          // Все сошлись - массивы идентичны
 }
+
 
 void setup() {
   pinMode(led1, OUTPUT);
