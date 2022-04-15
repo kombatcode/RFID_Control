@@ -51,7 +51,7 @@ void loop() {
       Serial.println("У вас нет доступа");
       digitalWrite(LED2, HIGH); // Нет доступа, начинаем мигать красным светодиодом
       digitalWrite(LED1, LOW);
-      delay(1000);
+      delay(500);
       digitalWrite(LED2, LOW);
       digitalWrite(LED2, HIGH);
       return;
