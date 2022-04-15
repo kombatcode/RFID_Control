@@ -49,8 +49,11 @@ void loop() {
     // Если идентификатор не совпадает с заданным номером
     if (uidCard[i] != mfrc522.uid.uidByte[i]) {
       Serial.println("У вас нет доступа");
-      digitalWrite(LED2, HIGH); // Нет доступа - лови красный светодиод)
+      digitalWrite(LED2, HIGH); // Нет доступа, начинаем мигать красным светодиодом
       digitalWrite(LED1, LOW);
+      delay(1000);
+      digitalWrite(LED2, LOW);
+      digitalWrite(LED2, HIGH);
       return;
     }else{
       Serial.println("Проходите");
