@@ -6,7 +6,6 @@
 // контакты
 #define LED1 8
 #define LED2 7
-#define BTM 2
 #define SS_PIN 10
 #define RST_PIN 9
 
@@ -19,7 +18,7 @@ void setup() {
   SPI.begin();
   mfrc522.PCD_Init();
   servo.attach(6); // сервомоторчик в исходное положение (закрыто)
-  servo.write(90);
+  servo.write(0);
   pinMode(LED1, OUTPUT);   // 8 пин - выход
   pinMode(LED2, OUTPUT);  // 7 пин - выход
   // Далее мы показываем, что замок готов к работе, включая на 3 секунды 2 светодиода
@@ -59,9 +58,10 @@ void loop() {
       Serial.println("Проходите");
       digitalWrite(LED1, HIGH); // Карточка подошла - милости просим, зелёный лед, дверь открыта)
       digitalWrite(LED2, LOW);
-      servo.write(0); // открываем дверь
+      servo.write(90); // открываем дверь
       delay(3000); // ждём 10 сек, чтобы человек успел пройти
-      servo.write(90); // и закрываем
+      servo.write(0); // и закрываем
+      digitalWrite(LED1, LOW);
       digitalWrite(LED2, HIGH);
     }
   }
